@@ -35,6 +35,7 @@ public class headmovment : MonoBehaviour
         // Get mouse input
         float mouseX = Input.GetAxis("Mouse X");
         float mouseY = Input.GetAxis("Mouse Y");
+        
 
         // Update rotation values
         rotationX += mouseX * sensitivityX;

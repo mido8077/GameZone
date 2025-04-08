@@ -75,3 +75,4 @@ crashlytics-build.properties
 
 # Ignore Google services configuration file
 google-services.json
+AssetsStreamingAssets/google-services-desktop.json

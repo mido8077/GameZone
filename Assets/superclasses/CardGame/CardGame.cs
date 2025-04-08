@@ -7,14 +7,14 @@ namespace GameSystem
 {
     public class CardGame : Game
     {
-        protected List<GameObject> deck;
-        protected List<GameObject> prefabs;
+        protected List<GameObject> deck,centralPile;
         protected List<List<GameObject>> hands;
-        protected List<GameObject> centralPile;
 
-        int[] playerrotations = { 0, -90, 180, 90 };
+        //int[] playerrotations = { 0, -90, 180, 90 };
 
-        protected List<List<Vector3>> playerPositions ;
+        protected List<Vector3> playerrotations ; 
+
+        protected List<List<Vector3>> handspostions ;
         protected float sum = 0.0f;
         protected Vector3 centralpileLocalpos = new Vector3(-1, 0, 0);
 
@@ -32,18 +32,14 @@ namespace GameSystem
         {
             for (int i = 0; i < deck.Count; i++)
             {
-                deck[i].transform.Translate(0, 0, sum);
+                deck[i].transform.localPosition = new Vector3(0, sum, 0);
                 sum += 0.005f;
             }
             sum = 0;
         }
 
-        public void collectprefabs(string prefabpath)
-        {
-           PrefabTest prefabTest = new PrefabTest();
-           prefabs=prefabTest.getObjectsFromPrefab(prefabpath);
-           shuffledeck(prefabs);
-        }
+
+
         public void shuffledeck(List<GameObject> cards)
         {
             System.Random rand = new System.Random();
@@ -92,8 +88,8 @@ namespace GameSystem
                 for (int j = 0; j < hands[i].Count; j++)
                 {
                     
-                hands[i][j].transform.Rotate(0, 0, playerrotations[i]);
-                hands[i][j].transform.localPosition = playerPositions[i][j];
+                hands[i][j].transform.Rotate(playerrotations[i]);
+                hands[i][j].transform.localPosition = handspostions[i][j];
                 }
         }
         }
@@ -110,13 +106,8 @@ namespace GameSystem
             deck.RemoveAt(deck.Count - 1);
             return card;
         }
-        
-        
-        
-        public List<GameObject> Deck => deck;
-        public List<List<GameObject>> Hands => hands;
-        public List<GameObject> CentralPile => centralPile;
-        public List<List<Vector3>> PlayerPositions => playerPositions;
+        public virtual void setupposition(){}
+
 
     }
 } 

@@ -7,8 +7,11 @@ public class Screw :CardGame
     string prefabpath = "Prefabs/Screw_CardDeck";
     public Screw() : base("Screw", 4)
     {
-        collectprefabs(prefabpath);
-        playerPositions = new List<List<Vector3>>
+    playerrotations = new List<Vector3>
+            {
+                new Vector3(0, 0, 0), new Vector3(0, 0, -90), new Vector3(0,0 ,180 ), new Vector3(0, 0, 90)
+            };
+    handspostions = new List<List<Vector3>>
             {
                 new()
                 {
@@ -27,8 +30,12 @@ public class Screw :CardGame
                     new Vector3(2f, 0, 0.6f),new Vector3(2f, 0, -0.5f),new Vector3(3.5f, 0, 0.6f),new Vector3(3.5f, 0, -0.5f)
                 },
           };
+        
+        GameObjects=prefabtoGamebojects(prefabpath);
+        shuffledeck(GameObjects);
           DealCards(4);
           movetopostion();
+          Assemble(deck);
     }
     public override void DealCards(int numberofcards)
     {

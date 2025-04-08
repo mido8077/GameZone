@@ -24,8 +24,6 @@ public class GM : MonoBehaviour
             new Vector3(-1, 0, 2.3f),
             new Vector3(0.12f, 0, 3.9f),
             new Vector3(-1, 0, 3.9f),
-            new Vector3(-2.06f, 0, 2.3f),
-            new Vector3(-2.06f, 0, 3.29f)
         },
         new()
         {
@@ -80,10 +78,10 @@ public class GM : MonoBehaviour
     List<List<GameObject>> listarr =
         new()
         {
-            new List<GameObject> { null, null, null, null },
-            new List<GameObject> { null, null, null, null },
-            new List<GameObject> { null, null, null, null },
-            new List<GameObject> { null, null, null, null },
+            new List<GameObject> { },
+            new List<GameObject> { },
+            new List<GameObject> { },
+            new List<GameObject> { },
         };
     float sum = 0;
     String[] card = new string[]
@@ -98,13 +96,7 @@ public class GM : MonoBehaviour
         "Eight",
         "Nine",
         "Ten",
-        "RedScrew",
-        "Plus20",
-        "Match",
-        "GreenScrew",
-        "Swap",
-        "negative1",
-        "Lookaround"
+
     };
     void Start()
     {
@@ -132,8 +124,12 @@ public class GM : MonoBehaviour
             int randomIndex = rand.Next(0, x);
             temp = cards[randomIndex];
             cards.RemoveAt(randomIndex);
+            Debug.Log(cards.Count);
+            Debug.Log(temp.name);
+
             Shuffled_deck.Add(temp);
         }
+        Debug.Log(Shuffled_deck);
         Assemble(Shuffled_deck);
         Gamestart();
     }
@@ -167,12 +163,12 @@ public class GM : MonoBehaviour
 
         for (int i = 0; i < listarr.Count; i++)
         {
-            for (int j = 0; j < listarr[i].Count; j++)
+            for (int j = 0; j < 4; j++)
             {
                 lastindex = Shuffled_deck.Count - 1;
                 temp = Shuffled_deck[lastindex];
                 Shuffled_deck.RemoveAt(lastindex);
-                listarr[i][j] = temp;
+                listarr[i].Add(temp);
                 listarr[i][j].transform.Rotate(0, 0, rotations[i]);
                 listarr[i][j].transform.localPosition = listpos[i][j];
             }
@@ -358,6 +354,7 @@ public class GM : MonoBehaviour
     {
         for (int i = 0; i < x.Count; i++)
         {
+            Debug.Log(x[i].name);
             x[i].transform.Translate(0, 0, sum);
             sum += 0.01f;
         }
