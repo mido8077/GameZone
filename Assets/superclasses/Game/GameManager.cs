@@ -2,7 +2,7 @@ using UnityEngine;
 
 namespace GameSystem
 {
-    public class GameManager
+    public class GameManager:MonoBehaviour
     {
         private int currentTurn;
 
@@ -19,6 +19,10 @@ namespace GameSystem
         public virtual void EndGame()
         {
             
+        }
+        public virtual void playerturn(int player)
+        {
+
         }
 
         public virtual void NextTurn(int noOfPlayers)

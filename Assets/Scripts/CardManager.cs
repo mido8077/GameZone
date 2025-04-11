@@ -64,7 +64,7 @@ public class CardManager : MonoBehaviour
     {
         //  x.Update();
         HandleCardSelection();
-        MoveCards();
+        MoveCardsSmoothly();
 
         if (Input.GetKeyDown(KeyCode.Space))
         {
@@ -144,8 +144,8 @@ public class CardManager : MonoBehaviour
             {
                 Vector3 newPos = playerPositions[i][0] + (cardSpacing[i] * (j + 1));
                 playerPositions[i].Add(newPos);
-                playersCards[i][j].transform.position = playerPositions[i][0];
-                playersCards[i][j].transform.rotation = cardAngles[i];
+                playersCards[i][j].transform.localPosition = newPos;
+                playersCards[i][j].transform.localRotation = cardAngles[i];
             }
         }
     }
@@ -173,8 +173,8 @@ public class CardManager : MonoBehaviour
         GameObject navigatedCard = playersCards[currentPlayerIndex][selectedCardIndex];
         if (!selectedCards.Contains(navigatedCard))
         {
-            navigatedCard.GetComponent<Renderer>().material.color = Color.cyan;
             navigatedCard.transform.localScale = new Vector3(1.1f, 1.1f, 1.1f);
+            navigatedCard.GetComponent<Renderer>().material.color = Color.cyan;
         }
 
         if (Input.GetKeyDown(KeyCode.Return))
@@ -202,6 +202,7 @@ public class CardManager : MonoBehaviour
 
     void ThrowSelectedCards()
     {
+        int count = selectedCards.Count;
         foreach (GameObject card in selectedCards)
         {
             centralPile.Add(card);
@@ -221,13 +222,13 @@ public class CardManager : MonoBehaviour
         Debug.Log("It's Player " + (currentPlayerIndex + 1) + "'s turn!");
     }
 
-    void MoveCards()
+    void MoveCardsSmoothly()
     {
         for (int i = 0; i < playersCards.Count; i++)
         {
             for (int j = 0; j < playersCards[i].Count; j++)
             {
-                playersCards[i][j].transform.localPosition = playerPositions[i][0];
+                playersCards[i][j].transform.localPosition = playerPositions[i][j];
             }
         }
     }

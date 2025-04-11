@@ -11,7 +11,31 @@ public class Screw :CardGame
             {
                 new Vector3(0, 0, 0), new Vector3(0, 0, -90), new Vector3(0,0 ,180 ), new Vector3(0, 0, 90)
             };
-    handspostions = new List<List<Vector3>>
+
+        setupposition();
+        GameObjects=prefabtoGamebojects(prefabpath);
+        shuffledeck(GameObjects);
+        DealCards(4);
+        MovetoPostion();
+        Assemble(deck);
+    }
+    public override void DealCards(int numberofcards)
+    {
+        base.DealCards(numberofcards);
+        centralPile.Add(deck[deck.Count - 1]);
+        deck.RemoveAt(deck.Count - 1);
+        Assemble(centralPile);
+
+    }
+    protected override void MovetoPostion() 
+    {
+        base.MovetoPostion();
+        centralPile[0].transform.localPosition = centralpileLocalpos;
+        centralPile[0].transform.Rotate(0, 180, 0);
+    }
+    public override void setupposition()
+    {
+            handspostions = new List<List<Vector3>>
             {
                 new()
                 {
@@ -30,26 +54,6 @@ public class Screw :CardGame
                     new Vector3(2f, 0, 0.6f),new Vector3(2f, 0, -0.5f),new Vector3(3.5f, 0, 0.6f),new Vector3(3.5f, 0, -0.5f)
                 },
           };
-        
-        GameObjects=prefabtoGamebojects(prefabpath);
-        shuffledeck(GameObjects);
-          DealCards(4);
-          movetopostion();
-          Assemble(deck);
-    }
-    public override void DealCards(int numberofcards)
-    {
-        base.DealCards(numberofcards);
-        centralPile.Add(deck[deck.Count - 1]);
-        deck.RemoveAt(deck.Count - 1);
-        Assemble(centralPile);
-
-    }
-    protected override void movetopostion() 
-    {
-        base.movetopostion();
-        centralPile[0].transform.localPosition = centralpileLocalpos;
-        centralPile[0].transform.Rotate(0, 180, 0);
     }
 
     

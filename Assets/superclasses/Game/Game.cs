@@ -14,8 +14,6 @@ namespace GameSystem
 
         protected List<GameObject> GameObjects;
         
-        protected GameManager gameManager;
-
 
         public Game(string name, int numberOfPlayers)
         {
@@ -23,7 +21,6 @@ namespace GameSystem
             this.numberOfPlayers = numberOfPlayers;
             networkManager = new NetworkManager();
             db_manager = new DB_Manager();
-            gameManager = new GameManager();
 
         }
         public virtual List<GameObject> prefabtoGamebojects(string path)
