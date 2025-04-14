@@ -7,7 +7,7 @@ namespace GameSystem
     public class Game
     {
         protected string name;
-        protected int numberOfPlayers;
+        public int numberOfPlayers;
         protected NetworkManager networkManager;
         
         protected DB_Manager db_manager;
@@ -45,6 +45,28 @@ namespace GameSystem
         }
         return allObjectsInPrefab;  
         }
+        public GameObject GetNthItem(int n ,LinkedList<GameObject> list)
+    {
+        if (n <= 0 || list.Count == 0)
+            return null;
+
+        LinkedListNode<GameObject> currentNode = list.First;
+        int index = 1; // 1-based index
+
+        // Traverse the list until the nth node
+        while (currentNode != null)
+        {
+            if (index == n)
+            {
+                return currentNode.Value;
+            }
+
+            currentNode = currentNode.Next;
+            index++;
+        }
+
+        return null; // If n exceeds the count of elements in the linked list
+    }
 
 
 

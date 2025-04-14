@@ -4,12 +4,7 @@ namespace GameSystem
 {
     public class GameManager:MonoBehaviour
     {
-        private int currentTurn;
-
-        public GameManager()
-        {
-
-        }
+        protected int currentTurn;
 
         public virtual void StartGame()
         {
@@ -25,9 +20,9 @@ namespace GameSystem
 
         }
 
-        public virtual void NextTurn(int noOfPlayers)
+        public virtual int NextTurn(int noOfPlayers)
         {
-            currentTurn= (currentTurn + 1) % noOfPlayers;
+            return (currentTurn + 1) % noOfPlayers;
         }
 
     }

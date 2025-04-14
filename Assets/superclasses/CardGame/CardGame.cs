@@ -8,24 +8,17 @@ namespace GameSystem
 {
     public class CardGame : Game
     {
-        protected List<GameObject> deck,centralPile;
-        protected List<List<GameObject>> hands;
-
-        protected Vector3 oldscale ;
-
-        int cplayer = 0;
-        int navigatedCardindex = 0;
-
-        protected List<Vector3> playerrotations ; 
-
+        protected List<Vector3> playerrotations,cardSpacing ,pickposition ; 
+        protected List<Vector3> discard_pilespcaing;
+        public List<GameObject> deck;
+        public LinkedList<GameObject> centralPile;
         protected List<List<Vector3>> handspostions ;
+        public List<List<GameObject>> hands;
+        protected Vector3 oldscale ;
+        protected List<Vector3> centralpileLocalpos ;
+        protected int cplayer,navigatedCardindex = 0;
         protected float sum = 0.0f;
-        protected Vector3 centralpileLocalpos = new Vector3(-1, 0, 0);
-        protected List<Vector3> cardSpacing = new List<Vector3>(){};
 
-        protected List<Vector3> pickposition = new List<Vector3>
-            {
-            };
         public CardGame(string name, int numberOfPlayers) : base(name, numberOfPlayers)
         {
             deck = new List<GameObject>();
@@ -33,7 +26,9 @@ namespace GameSystem
                 {
                 new List<GameObject> {},new List<GameObject> {},new List<GameObject> {},new List<GameObject> {},
                 };
-            centralPile = new List<GameObject>();
+            centralPile = new LinkedList<GameObject>();
+            discard_pilespcaing= new List<Vector3>();
+
         }
 
         protected virtual void Assemble(List<GameObject> deck)
@@ -47,7 +42,7 @@ namespace GameSystem
         }
 
 
-        public void shuffledeck(List<GameObject> cards)
+        public virtual void shuffledeck(List<GameObject> cards)
         {
             System.Random rand = new System.Random();
             while (cards.Count > 0)
@@ -62,20 +57,17 @@ namespace GameSystem
         }
         public virtual void DealCards(int numberofcards)
         {
-            Debug.Log(deck.Count);
-
+            
             for (int i = 0; i < numberOfPlayers; i++)
             {
                 for (int j = 0; j <numberofcards; j++)
                 {
-                    Debug.Log(i);
                     hands[i].Add(deck[deck.Count - 1]);
                     deck.RemoveAt(deck.Count - 1);  
                 }
             }
-            Assemble(deck);
         }
-        public void DealCards()
+        public virtual void DealCards()
         {
             while(deck.Count>0)
             {
@@ -116,29 +108,28 @@ namespace GameSystem
 
         public virtual void setupposition(){}
 
-        public IEnumerator navigatedCards()
+        public IEnumerator navigatedCards(int currentPlayer=0)
         {
-
-            foreach (GameObject card in hands[cplayer])
+            foreach (GameObject card in hands[currentPlayer])
                 {
                     card.transform.localScale = oldscale;
                     card.GetComponent<Renderer>().material.color = Color.white;
                 }
             if (Input.GetKeyDown(KeyCode.Q))
                 {
-                    navigatedCardindex =((navigatedCardindex - 1)+hands[cplayer].Count )% hands[cplayer].Count;
+                    navigatedCardindex =((navigatedCardindex - 1)+hands[currentPlayer].Count )% hands[currentPlayer].Count;
                 }
             else if (Input.GetKeyDown(KeyCode.W))
                 {
-                    navigatedCardindex = (navigatedCardindex + 1) % hands[cplayer].Count;
+                    navigatedCardindex = (navigatedCardindex + 1) % hands[currentPlayer].Count;
                 }
 
-            GameObject navigatedCard = hands[cplayer][navigatedCardindex];
-            navigatedCard.transform.localScale = oldscale * 1.5f;
+            GameObject navigatedCard = hands[currentPlayer][navigatedCardindex];
+            navigatedCard.transform.localScale = oldscale * 1.2f;
             navigatedCard.GetComponent<Renderer>().material.color = Color.cyan;
             yield return null;
         }
-        public virtual void throwCard(int player, int cardIndex)
+        public virtual void throwCard(int player, int cardIndex,string place="last")
         {
             if (cardIndex < 0 || cardIndex >= hands[player].Count)
             {
@@ -147,8 +138,23 @@ namespace GameSystem
             }
             GameObject card = hands[player][cardIndex];
             hands[player].RemoveAt(cardIndex);
-            centralPile.Add(card);
-            card.transform.localPosition = centralpileLocalpos;
+            if(place =="last")
+            {
+            centralPile.AddLast(card);
+            card.transform.localScale = oldscale;
+            card.GetComponent<Renderer>().material.color = Color.white;
+            card.transform.localPosition = centralpileLocalpos[0];
+            centralpileLocalpos[0]+=discard_pilespcaing[0];
+            }
+            else 
+            {  
+            centralPile.AddFirst(card);
+            card.transform.localScale = oldscale;
+            card.GetComponent<Renderer>().material.color = Color.white;
+            centralpileLocalpos[1]-=discard_pilespcaing[1];
+            card.transform.localPosition = centralpileLocalpos[1];
+            }
+            card.transform.Rotate(-90,0,0);
         }
         
 
