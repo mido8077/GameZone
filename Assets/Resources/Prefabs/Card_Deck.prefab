@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 4369181088855215136}
   - component: {fileID: 1965403718249691370}
   m_Layer: 0
-  m_Name: Card_Heart9
+  m_Name: Card_Heart-9
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -98,7 +98,7 @@ GameObject:
   - component: {fileID: 4467697694212537829}
   - component: {fileID: 1865761453530564911}
   m_Layer: 0
-  m_Name: Card_Spade9
+  m_Name: Card_Spade-9
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -184,7 +184,7 @@ GameObject:
   - component: {fileID: 4589511557334528998}
   - component: {fileID: 1753535469782140716}
   m_Layer: 0
-  m_Name: Card_DiamondQueen
+  m_Name: Card_Diamond-Queen
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -270,7 +270,7 @@ GameObject:
   - component: {fileID: 4104498256232114086}
   - component: {fileID: 2239111600730280812}
   m_Layer: 0
-  m_Name: Card_Club6
+  m_Name: Card_Club-6
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -356,7 +356,7 @@ GameObject:
   - component: {fileID: 4096103414147331478}
   - component: {fileID: 2250884004411916636}
   m_Layer: 0
-  m_Name: Card_DiamondAce
+  m_Name: Card_Diamond-Ace
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -442,7 +442,7 @@ GameObject:
   - component: {fileID: 4271240976399493500}
   - component: {fileID: 2063361389198745014}
   m_Layer: 0
-  m_Name: Card_ClubAce
+  m_Name: Card_Club-Ace
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -528,7 +528,7 @@ GameObject:
   - component: {fileID: 3812296716035586696}
   - component: {fileID: 1369948486386093634}
   m_Layer: 0
-  m_Name: Card_ClubJack
+  m_Name: Card_Club-Jack
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -614,7 +614,7 @@ GameObject:
   - component: {fileID: 3896745348479330746}
   - component: {fileID: 1292799682989579632}
   m_Layer: 0
-  m_Name: Card_DiamondJack
+  m_Name: Card_Diamond-Jack
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -700,7 +700,7 @@ GameObject:
   - component: {fileID: 4033400167022278295}
   - component: {fileID: 1161211121836606045}
   m_Layer: 0
-  m_Name: Card_HeartJack
+  m_Name: Card_Heart-Jack
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -786,7 +786,7 @@ GameObject:
   - component: {fileID: 3663656844840904470}
   - component: {fileID: 1527594611541496796}
   m_Layer: 0
-  m_Name: Card_HeartAce
+  m_Name: Card_Heart-Ace
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -872,7 +872,7 @@ GameObject:
   - component: {fileID: 3351833654002557399}
   - component: {fileID: 675801331504862493}
   m_Layer: 0
-  m_Name: Card_Diamond2
+  m_Name: Card_Diamond-2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1000,7 +1000,6 @@ Transform:
   - {fileID: 4358890115061865616}
   - {fileID: 236478835447526701}
   - {fileID: 8407126895000175769}
-  - {fileID: 4570652399842895247}
   - {fileID: 1114521950694881843}
   - {fileID: 1813755920170790514}
   - {fileID: 6872894144106110555}
@@ -1013,7 +1012,6 @@ Transform:
   - {fileID: 7139740181468024940}
   - {fileID: 124938240205202975}
   - {fileID: 585155573041232963}
-  - {fileID: 6462796992228981392}
   - {fileID: 6631508984381966428}
   - {fileID: 3210438774425132685}
   - {fileID: 1709435551791702131}
@@ -1026,7 +1024,6 @@ Transform:
   - {fileID: 8419774952340257210}
   - {fileID: 2159365564100309279}
   - {fileID: 3715263429954645973}
-  - {fileID: 2862785277859998195}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: -90, y: 90.004, z: 89.996}
 --- !u!1 &1396801780275848227
@@ -1041,7 +1038,7 @@ GameObject:
   - component: {fileID: 3424535515637412156}
   - component: {fileID: 604207622812730870}
   m_Layer: 0
-  m_Name: Card_Diamond5
+  m_Name: Card_Diamond-5
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1127,7 +1124,7 @@ GameObject:
   - component: {fileID: 3024252428941808150}
   - component: {fileID: 1016892977326368476}
   m_Layer: 0
-  m_Name: Card_Heart2
+  m_Name: Card_Heart-2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1213,7 +1210,7 @@ GameObject:
   - component: {fileID: 3051259251216875194}
   - component: {fileID: 989867600265022064}
   m_Layer: 0
-  m_Name: Card_SpadeJack
+  m_Name: Card_Spade-Jack
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1299,7 +1296,7 @@ GameObject:
   - component: {fileID: 2613556944389804942}
   - component: {fileID: 261718369756833604}
   m_Layer: 0
-  m_Name: Card_Diamond7
+  m_Name: Card_Diamond-7
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1385,7 +1382,7 @@ GameObject:
   - component: {fileID: 2686164111219828350}
   - component: {fileID: 190236741959537332}
   m_Layer: 0
-  m_Name: Card_Club8
+  m_Name: Card_Club-8
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1471,7 +1468,7 @@ GameObject:
   - component: {fileID: 2312309265164464086}
   - component: {fileID: 572535836754058012}
   m_Layer: 0
-  m_Name: Card_Spade3
+  m_Name: Card_Spade-3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1557,7 +1554,7 @@ GameObject:
   - component: {fileID: 2562596757509989642}
   - component: {fileID: 321122702769492416}
   m_Layer: 0
-  m_Name: Card_Diamond6
+  m_Name: Card_Diamond-6
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1643,7 +1640,7 @@ GameObject:
   - component: {fileID: 2041180379364182535}
   - component: {fileID: 4302993680961060557}
   m_Layer: 0
-  m_Name: Card_Spade7
+  m_Name: Card_Spade-7
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1729,7 +1726,7 @@ GameObject:
   - component: {fileID: 1955158839381659944}
   - component: {fileID: 4379444779824440802}
   m_Layer: 0
-  m_Name: Card_Spade2
+  m_Name: Card_Spade-2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1815,7 +1812,7 @@ GameObject:
   - component: {fileID: 1444134107441841425}
   - component: {fileID: 3742050489932984795}
   m_Layer: 0
-  m_Name: Card_Club9
+  m_Name: Card_Club-9
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1901,7 +1898,7 @@ GameObject:
   - component: {fileID: 1602378132016286469}
   - component: {fileID: 3591687919884025807}
   m_Layer: 0
-  m_Name: Card_Club3
+  m_Name: Card_Club-3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1975,92 +1972,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!1 &3238502263456559945
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 2862785277859998195}
-  - component: {fileID: 1158959608625047126}
-  - component: {fileID: 4031149197457609372}
-  m_Layer: 0
-  m_Name: Card_SpadeKing
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &2862785277859998195
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3238502263456559945}
-  serializedVersion: 2
-  m_LocalRotation: {x: 1, y: 0, z: 0, w: 0}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 7, y: 7, z: 7}
-  m_ConstrainProportionsScale: 1
-  m_Children: []
-  m_Father: {fileID: 5910166924060004926}
-  m_LocalEulerAnglesHint: {x: 180, y: 0, z: 0}
---- !u!33 &1158959608625047126
-MeshFilter:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3238502263456559945}
-  m_Mesh: {fileID: -7378554737527818348, guid: 851325f54e7e8d74e92fe4a438b4c46b, type: 3}
---- !u!23 &4031149197457609372
-MeshRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3238502263456559945}
-  m_Enabled: 1
-  m_CastShadows: 1
-  m_ReceiveShadows: 1
-  m_DynamicOccludee: 1
-  m_StaticShadowCaster: 0
-  m_MotionVectors: 1
-  m_LightProbeUsage: 1
-  m_ReflectionProbeUsage: 1
-  m_RayTracingMode: 2
-  m_RayTraceProcedural: 0
-  m_RayTracingAccelStructBuildFlagsOverride: 0
-  m_RayTracingAccelStructBuildFlags: 1
-  m_SmallMeshCulling: 1
-  m_RenderingLayerMask: 1
-  m_RendererPriority: 0
-  m_Materials:
-  - {fileID: 2100000, guid: acee5651fa8f28a4a93d6f83dc387a45, type: 2}
-  m_StaticBatchInfo:
-    firstSubMesh: 0
-    subMeshCount: 0
-  m_StaticBatchRoot: {fileID: 0}
-  m_ProbeAnchor: {fileID: 0}
-  m_LightProbeVolumeOverride: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_ReceiveGI: 1
-  m_PreserveUVs: 0
-  m_IgnoreNormalsForChartDetection: 0
-  m_ImportantGI: 0
-  m_StitchLightmapSeams: 1
-  m_SelectedEditorRenderState: 3
-  m_MinimumChartSize: 4
-  m_AutoUVMaxDistance: 0.5
-  m_AutoUVMaxAngle: 89
-  m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 0
-  m_AdditionalVertexStreams: {fileID: 0}
 --- !u!1 &3661266194440897642
 GameObject:
   m_ObjectHideFlags: 0
@@ -2073,7 +1984,7 @@ GameObject:
   - component: {fileID: 1021020849176875381}
   - component: {fileID: 3012787498995967423}
   m_Layer: 0
-  m_Name: Card_Diamond8
+  m_Name: Card_Diamond-8
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2159,7 +2070,7 @@ GameObject:
   - component: {fileID: 1125875300649238002}
   - component: {fileID: 2916959092528744760}
   m_Layer: 0
-  m_Name: Card_Heart8
+  m_Name: Card_Heart-8
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2233,92 +2144,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!1 &3757665137991647029
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 4570652399842895247}
-  - component: {fileID: 631035773942180394}
-  - component: {fileID: 3397144551460429536}
-  m_Layer: 0
-  m_Name: Card_ClubKing
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &4570652399842895247
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3757665137991647029}
-  serializedVersion: 2
-  m_LocalRotation: {x: 1, y: 0, z: 0, w: 0}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 7, y: 7, z: 7}
-  m_ConstrainProportionsScale: 1
-  m_Children: []
-  m_Father: {fileID: 5910166924060004926}
-  m_LocalEulerAnglesHint: {x: 180, y: 0, z: 0}
---- !u!33 &631035773942180394
-MeshFilter:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3757665137991647029}
-  m_Mesh: {fileID: -2997190737178703688, guid: 2ab0c8d0a9cb2954fb0b6829e76a4190, type: 3}
---- !u!23 &3397144551460429536
-MeshRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3757665137991647029}
-  m_Enabled: 1
-  m_CastShadows: 1
-  m_ReceiveShadows: 1
-  m_DynamicOccludee: 1
-  m_StaticShadowCaster: 0
-  m_MotionVectors: 1
-  m_LightProbeUsage: 1
-  m_ReflectionProbeUsage: 1
-  m_RayTracingMode: 2
-  m_RayTraceProcedural: 0
-  m_RayTracingAccelStructBuildFlagsOverride: 0
-  m_RayTracingAccelStructBuildFlags: 1
-  m_SmallMeshCulling: 1
-  m_RenderingLayerMask: 1
-  m_RendererPriority: 0
-  m_Materials:
-  - {fileID: 2100000, guid: acee5651fa8f28a4a93d6f83dc387a45, type: 2}
-  m_StaticBatchInfo:
-    firstSubMesh: 0
-    subMeshCount: 0
-  m_StaticBatchRoot: {fileID: 0}
-  m_ProbeAnchor: {fileID: 0}
-  m_LightProbeVolumeOverride: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_ReceiveGI: 1
-  m_PreserveUVs: 0
-  m_IgnoreNormalsForChartDetection: 0
-  m_ImportantGI: 0
-  m_StitchLightmapSeams: 1
-  m_SelectedEditorRenderState: 3
-  m_MinimumChartSize: 4
-  m_AutoUVMaxDistance: 0.5
-  m_AutoUVMaxAngle: 89
-  m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 0
-  m_AdditionalVertexStreams: {fileID: 0}
 --- !u!1 &3947419084102103544
 GameObject:
   m_ObjectHideFlags: 0
@@ -2331,7 +2156,7 @@ GameObject:
   - component: {fileID: 732969119032255719}
   - component: {fileID: 3299151495293784109}
   m_Layer: 0
-  m_Name: Card_Club2
+  m_Name: Card_Club-2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2417,7 +2242,7 @@ GameObject:
   - component: {fileID: 851805824404050741}
   - component: {fileID: 3185962122830325759}
   m_Layer: 0
-  m_Name: Card_Club10
+  m_Name: Card_Club-10
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2503,7 +2328,7 @@ GameObject:
   - component: {fileID: 794864279027833873}
   - component: {fileID: 3234459264249047259}
   m_Layer: 0
-  m_Name: Card_Heart4
+  m_Name: Card_Heart-4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2589,7 +2414,7 @@ GameObject:
   - component: {fileID: 297413441356636272}
   - component: {fileID: 2577300039423349946}
   m_Layer: 0
-  m_Name: Card_SpadeQueen
+  m_Name: Card_Spade-Queen
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2675,7 +2500,7 @@ GameObject:
   - component: {fileID: 504144897873638971}
   - component: {fileID: 2385749282239382257}
   m_Layer: 0
-  m_Name: Card_Heart10
+  m_Name: Card_Heart-10
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2761,7 +2586,7 @@ GameObject:
   - component: {fileID: 150452504858555697}
   - component: {fileID: 2734376052871234043}
   m_Layer: 0
-  m_Name: Card_Club5
+  m_Name: Card_Club-5
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2847,7 +2672,7 @@ GameObject:
   - component: {fileID: 8467929231537763907}
   - component: {fileID: 5935981307567047305}
   m_Layer: 0
-  m_Name: Card_Diamond4
+  m_Name: Card_Diamond-4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2933,7 +2758,7 @@ GameObject:
   - component: {fileID: 8188831047868030447}
   - component: {fileID: 6215078786892687653}
   m_Layer: 0
-  m_Name: Card_Diamond9
+  m_Name: Card_Diamond-9
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3019,7 +2844,7 @@ GameObject:
   - component: {fileID: 7927875278478793185}
   - component: {fileID: 5323694315351092523}
   m_Layer: 0
-  m_Name: Card_Spade4
+  m_Name: Card_Spade-4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3093,92 +2918,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!1 &5979556768218685482
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 6462796992228981392}
-  - component: {fileID: 7935250230743299381}
-  - component: {fileID: 5330954928004956671}
-  m_Layer: 0
-  m_Name: Card_DiamondKing
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &6462796992228981392
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5979556768218685482}
-  serializedVersion: 2
-  m_LocalRotation: {x: 1, y: 0, z: 0, w: 0}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 7, y: 7, z: 7}
-  m_ConstrainProportionsScale: 1
-  m_Children: []
-  m_Father: {fileID: 5910166924060004926}
-  m_LocalEulerAnglesHint: {x: 180, y: 0, z: 0}
---- !u!33 &7935250230743299381
-MeshFilter:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5979556768218685482}
-  m_Mesh: {fileID: -4129701889016647969, guid: 069aed6649ec2d24aa411927388d32a5, type: 3}
---- !u!23 &5330954928004956671
-MeshRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5979556768218685482}
-  m_Enabled: 1
-  m_CastShadows: 1
-  m_ReceiveShadows: 1
-  m_DynamicOccludee: 1
-  m_StaticShadowCaster: 0
-  m_MotionVectors: 1
-  m_LightProbeUsage: 1
-  m_ReflectionProbeUsage: 1
-  m_RayTracingMode: 2
-  m_RayTraceProcedural: 0
-  m_RayTracingAccelStructBuildFlagsOverride: 0
-  m_RayTracingAccelStructBuildFlags: 1
-  m_SmallMeshCulling: 1
-  m_RenderingLayerMask: 1
-  m_RendererPriority: 0
-  m_Materials:
-  - {fileID: 2100000, guid: acee5651fa8f28a4a93d6f83dc387a45, type: 2}
-  m_StaticBatchInfo:
-    firstSubMesh: 0
-    subMeshCount: 0
-  m_StaticBatchRoot: {fileID: 0}
-  m_ProbeAnchor: {fileID: 0}
-  m_LightProbeVolumeOverride: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_ReceiveGI: 1
-  m_PreserveUVs: 0
-  m_IgnoreNormalsForChartDetection: 0
-  m_ImportantGI: 0
-  m_StitchLightmapSeams: 1
-  m_SelectedEditorRenderState: 3
-  m_MinimumChartSize: 4
-  m_AutoUVMaxDistance: 0.5
-  m_AutoUVMaxAngle: 89
-  m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 0
-  m_AdditionalVertexStreams: {fileID: 0}
 --- !u!1 &6025126085309437057
 GameObject:
   m_ObjectHideFlags: 0
@@ -3191,7 +2930,7 @@ GameObject:
   - component: {fileID: 8032600365586203038}
   - component: {fileID: 5232461696745911636}
   m_Layer: 0
-  m_Name: Card_Heart6
+  m_Name: Card_Heart-6
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3277,7 +3016,7 @@ GameObject:
   - component: {fileID: 7552175222594572798}
   - component: {fileID: 5704442332566349108}
   m_Layer: 0
-  m_Name: Card_Diamond3
+  m_Name: Card_Diamond-3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3363,7 +3102,7 @@ GameObject:
   - component: {fileID: 7757452404645758969}
   - component: {fileID: 5498040367456056115}
   m_Layer: 0
-  m_Name: Card_SpadeAce
+  m_Name: Card_Spade-Ace
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3449,7 +3188,7 @@ GameObject:
   - component: {fileID: 7253142699735377558}
   - component: {fileID: 4849428549907583580}
   m_Layer: 0
-  m_Name: Card_Heart5
+  m_Name: Card_Heart-5
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3535,7 +3274,7 @@ GameObject:
   - component: {fileID: 7077759684992453091}
   - component: {fileID: 5034381886351129897}
   m_Layer: 0
-  m_Name: Card_Heart3
+  m_Name: Card_Heart-3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3621,7 +3360,7 @@ GameObject:
   - component: {fileID: 6585148161535610880}
   - component: {fileID: 8973371769854715082}
   m_Layer: 0
-  m_Name: Card_Heart7
+  m_Name: Card_Heart-7
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3707,7 +3446,7 @@ GameObject:
   - component: {fileID: 6105377275248844745}
   - component: {fileID: 8313186421496343299}
   m_Layer: 0
-  m_Name: Card_Diamond10
+  m_Name: Card_Diamond-10
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3793,7 +3532,7 @@ GameObject:
   - component: {fileID: 6320553099649883441}
   - component: {fileID: 8094071098329590267}
   m_Layer: 0
-  m_Name: Card_Club4
+  m_Name: Card_Club-4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3879,7 +3618,7 @@ GameObject:
   - component: {fileID: 5784768358831070323}
   - component: {fileID: 8620830205337626809}
   m_Layer: 0
-  m_Name: Card_Spade8
+  m_Name: Card_Spade-8
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3965,7 +3704,7 @@ GameObject:
   - component: {fileID: 5885691380339989408}
   - component: {fileID: 8523865391484546922}
   m_Layer: 0
-  m_Name: Card_Club7
+  m_Name: Card_Club-7
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4051,7 +3790,7 @@ GameObject:
   - component: {fileID: 5209278440052245320}
   - component: {fileID: 8047902219182978946}
   m_Layer: 0
-  m_Name: Card_Spade6
+  m_Name: Card_Spade-6
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4137,7 +3876,7 @@ GameObject:
   - component: {fileID: 5345165062064635348}
   - component: {fileID: 7910889423013677342}
   m_Layer: 0
-  m_Name: Card_Spade5
+  m_Name: Card_Spade-5
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4223,7 +3962,7 @@ GameObject:
   - component: {fileID: 5409205828081730919}
   - component: {fileID: 7851369831551480237}
   m_Layer: 0
-  m_Name: Card_HeartQueen
+  m_Name: Card_Heart-Queen
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4309,7 +4048,7 @@ GameObject:
   - component: {fileID: 4943653463308898560}
   - component: {fileID: 7169613956388545994}
   m_Layer: 0
-  m_Name: Card_HeartKing
+  m_Name: Card_Heart-King
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4395,7 +4134,7 @@ GameObject:
   - component: {fileID: 4861309383804974623}
   - component: {fileID: 7246890386791531221}
   m_Layer: 0
-  m_Name: Card_Spade10
+  m_Name: Card_Spade-10
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4481,7 +4220,7 @@ GameObject:
   - component: {fileID: 4828921802666363708}
   - component: {fileID: 7270834560278052854}
   m_Layer: 0
-  m_Name: Card_ClubQueen
+  m_Name: Card_Club-Queen
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

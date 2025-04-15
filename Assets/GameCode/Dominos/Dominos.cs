@@ -3,13 +3,15 @@ using GameSystem;
 using System.Collections.Generic;
 using System.Threading;
 using System;
+using System.Collections;
 public class Dominos:CardGame
 {
     float[] coordinates = { -0.405f, -0.24f, -0.405f, -0.24f };
-    public string  gamestate= "navigating";
+    
     public string where="none";
     public Dominos():base("Dominos",4)
     {
+        gamestate="navigating";
         centralpileLocalpos= new List<Vector3>();
         discard_pilespcaing.Add(new Vector3(0.7f/5,0,0));
         discard_pilespcaing.Add(new Vector3(0.7f/5,0,0));
@@ -62,15 +64,21 @@ public class Dominos:CardGame
 
         }
     }
-    public IEnumerator<string> firstorlast()
+    public IEnumerator firstorlast()
     {
+        Debug.Log("first or last : "+gamestate);
         int click=0;
         gamestate="choosing";
+        Debug.Log("choosing");
         while(click==0)
         {
+            if(gamestate=="end")
+            {
+                yield break;
+            }
             if(Input.GetKeyDown(KeyCode.Alpha1))
             {
-                where="first";
+                where="first"; 
                 gamestate="navigating";
                 yield break;
             }
@@ -102,8 +110,13 @@ public class Dominos:CardGame
             {
                 Debug.Log("testing if playable");
                 if(isplayable(player,place,cardIndex)) 
-                base.throwCard(player, cardIndex,place); 
-                
+                base.throwCard(player, cardIndex,place);
+                if(hands[player].Count==0)
+                {
+                Debug.Log("end: "+hands[player].Count);
+                gamestate="end";
+                Debug.Log("Game state: " + gamestate+"expected end");
+                }
             }
         }
         public bool isplayable(int player,string place,int cardIndex)
@@ -132,7 +145,7 @@ public class Dominos:CardGame
                 {
                     Debug.Log(dominonumbers[1][0]+"=="+CentralPileNumber[1][2]);
                     Debug.Log(dominonumbers[1][2]+"=="+CentralPileNumber[1][2]);
-                    int otherNumber = (dominonumbers[1][0] == CentralPileNumber[1][2]) ? dominonumbers[1][2]  : dominonumbers[1][0];
+                    char otherNumber = (dominonumbers[1][0] == CentralPileNumber[1][2]) ? dominonumbers[1][2]  : dominonumbers[1][0];
                     card.name= "Domino_" + CentralPileNumber[1][2]+"-"+otherNumber;
                     Debug.Log(card.name);
                     return true;
