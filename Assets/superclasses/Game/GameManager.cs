@@ -24,7 +24,6 @@ namespace GameSystem
         {
             return (currentTurn + 1) % noOfPlayers;
         }
-        public virtual int firstplayer(){ return 0;}
 
     }
 } 
