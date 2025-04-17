@@ -11,12 +11,15 @@ namespace GameSystem
         protected List<Vector3> playerrotations,cardSpacing ,pickposition ; 
         protected List<Vector3> discard_pilespcaing;
         public List<GameObject> deck;
+        public string  gamestate;
         public LinkedList<GameObject> centralPile;
         protected List<List<Vector3>> handspostions ;
         public List<List<GameObject>> hands;
         protected Vector3 oldscale ;
         protected List<Vector3> centralpileLocalpos ;
-        protected int cplayer,navigatedCardindex = 0;
+        public int cplayer,navigatedCardindex = 0;
+        public List<int> selectedCardsindex ;
+
         protected float sum = 0.0f;
 
         public CardGame(string name, int numberOfPlayers) : base(name, numberOfPlayers)
@@ -73,9 +76,11 @@ namespace GameSystem
             {
                 for (int i = 0; i < numberOfPlayers; i++)
                 {
-
+                    if(deck.Count!=0)
+                    {
                     hands[i].Add(deck[deck.Count - 1]);
                     deck.RemoveAt(deck.Count - 1);  
+                    }
                 }
             }
             Assemble(deck);
@@ -108,13 +113,25 @@ namespace GameSystem
 
         public virtual void setupposition(){}
 
+        public virtual void discardpileposition()
+        {}
+
         public IEnumerator navigatedCards(int currentPlayer=0)
         {
-            foreach (GameObject card in hands[currentPlayer])
+            if(gamestate=="end")
+            {
+                yield break;
+            }
+
+            for(int i =0;i<hands[currentPlayer].Count;i++)
                 {
-                    card.transform.localScale = oldscale;
-                    card.GetComponent<Renderer>().material.color = Color.white;
+                    if(!selectedCardsindex.Contains(i))
+                    {
+                    hands[currentPlayer][i].transform.localScale = oldscale;
+                    hands[currentPlayer][i].GetComponent<Renderer>().material.color = Color.white;
+                    }
                 }
+            
             if (Input.GetKeyDown(KeyCode.Q))
                 {
                     navigatedCardindex =((navigatedCardindex - 1)+hands[currentPlayer].Count )% hands[currentPlayer].Count;
@@ -123,10 +140,12 @@ namespace GameSystem
                 {
                     navigatedCardindex = (navigatedCardindex + 1) % hands[currentPlayer].Count;
                 }
-
+            if(!selectedCardsindex.Contains(navigatedCardindex))
+            {
             GameObject navigatedCard = hands[currentPlayer][navigatedCardindex];
             navigatedCard.transform.localScale = oldscale * 1.2f;
             navigatedCard.GetComponent<Renderer>().material.color = Color.cyan;
+            }
             yield return null;
         }
         public virtual void throwCard(int player, int cardIndex,string place="last")
@@ -156,8 +175,6 @@ namespace GameSystem
             }
             card.transform.Rotate(-90,0,0);
         }
-        
-
-
+                
     }
 } 
