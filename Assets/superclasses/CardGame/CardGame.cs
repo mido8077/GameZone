@@ -15,7 +15,7 @@ namespace GameSystem
         public LinkedList<GameObject> centralPile;
         protected List<List<Vector3>> handspostions ;
         public List<List<GameObject>> hands;
-        protected Vector3 oldscale ;
+        protected Vector3 oldscale,discardpileRotation ;
         protected List<Vector3> centralpileLocalpos ;
         public int cplayer,navigatedCardindex = 0;
         public List<int> selectedCardsindex ;
@@ -173,7 +173,7 @@ namespace GameSystem
             centralpileLocalpos[1]-=discard_pilespcaing[1];
             card.transform.localPosition = centralpileLocalpos[1];
             }
-            card.transform.Rotate(-90,0,0);
+            card.transform.localRotation = Quaternion.Euler(discardpileRotation);
         }
                 
     }

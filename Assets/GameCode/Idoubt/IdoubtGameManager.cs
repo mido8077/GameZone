@@ -10,6 +10,8 @@ namespace GameSystem
     {
     Idoubt idoubt;
     public List<GameObject> dropdownPrefab;
+
+    bool doubtcall,isdoubt = false;
     public Transform parentCanvas;
     private Dropdown dropdownInstance;
     private bool isOpen = false;
@@ -21,8 +23,8 @@ namespace GameSystem
         Transform child = dropdownPrefab[0].transform.GetChild(0);
         dropdownInstance = child.gameObject.GetComponent<Dropdown>();
         currentTurn=firstplayer();
-        idoubt.gamestate="claiming";
-        //child.gameObject.SetActive(false);
+        idoubt.gamestate="start";
+        dropdownPrefab[0].SetActive(false);
         if (dropdownPrefab == null)
         {
             Debug.LogError("Dropdown prefab or parentCanvas is not assigned!");
@@ -43,26 +45,67 @@ namespace GameSystem
     }
     public void Update()
     {
-        if(idoubt.gamestate=="start")
+        if(idoubt.gamestate=="end")
         {
-            if(Input.GetKeyDown(KeyCode.Space))
+            Debug.Log("Game Over");
+            return;
+        }
+        Debug.Log("claim: " + idoubt.claim);
+        if(idoubt.gamestate=="navigating" || idoubt.gamestate=="start")
+        {
+            if(dropdownPrefab[0].activeSelf)
             {
-                if(idoubt.hands[currentTurn][idoubt.navigatedCardindex].name=="Card_Heart-King")
+                dropdownPrefab[0].SetActive(false);
+            }
+            StartCoroutine(idoubt.navigatedCards(currentTurn));
+            
+            if(idoubt.gamestate=="start")
+            {
+                if(Input.GetKeyDown(KeyCode.Space))
                 {
-                    idoubt.throwCard(currentTurn,idoubt.navigatedCardindex);
-                    idoubt.gamestate="navigating";
-                    idoubt.navigatedCardindex=0;
-                    currentTurn=NextTurn(idoubt.numberOfPlayers);
-                }
-                else
-                {
-                   Debug.Log("play the king of hearts");
+                    if(idoubt.hands[currentTurn][idoubt.navigatedCardindex].name=="Card_Heart-King")
+                    {
+                        idoubt.throwCard(currentTurn,idoubt.navigatedCardindex);
+                        idoubt.gamestate="navigating";
+                        idoubt.navigatedCardindex=0;
+                        currentTurn=NextTurn(idoubt.numberOfPlayers);
+                    }
+                    else
+                    {
+                    Debug.Log("play the king of hearts");
+                    }
                 }
             }
+            else
+            {
+                if (Input.GetKeyDown(KeyCode.Space))
+                    {
+                        idoubt.SelectCard(idoubt.navigatedCardindex,currentTurn);
+                    }
+            }
+                if(Input.GetKeyDown(KeyCode.X))
+                {
+                    
+                    doubtcall=true;
+                    isdoubt=idoubt.doubt(currentTurn);
+                    currentTurn=NextTurn(idoubt.numberOfPlayers);
+                    
+                }
+                if(Input.GetKeyDown(KeyCode.Return))
+                {
+                    idoubt.throwCards(currentTurn,idoubt.selectedCardsindex);
+                    idoubt.selectedCardsindex.Clear();
+                    currentTurn=NextTurn(idoubt.numberOfPlayers);
+                }
+                if(Input.GetKeyDown(KeyCode.P))
+                {
+                    currentTurn=NextTurn(idoubt.numberOfPlayers);
+                }
         }
         else if(idoubt.gamestate=="claiming")
         {
-            //dropdownPrefab[0].SetActive(true);
+            Debug.Log("claiming");
+            dropdownPrefab[0].SetActive(true);
             if (dropdownInstance == null)
                 return;
             if (Input.GetKeyDown(KeyCode.DownArrow))
@@ -85,21 +128,6 @@ namespace GameSystem
                 CloseDropdown();
             }
         }
-        else if(idoubt.gamestate=="navigating")
-        {
-        StartCoroutine(idoubt.navigatedCards(currentTurn));
-        dropdownPrefab[0].SetActive(false);
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            idoubt.SelectCard(idoubt.navigatedCardindex,currentTurn);
-        }
-        if (Input.GetKeyDown(KeyCode.Return))
-        {
-            idoubt.throwCards(currentTurn,idoubt.selectedCardsindex);
-        }
-        }
-
-        
     }
     public override int firstplayer()
     {
@@ -113,7 +141,24 @@ namespace GameSystem
         }
         return 0;
     }
- void OpenDropdown()
+    public override int NextTurn(int noOfPlayers)
+    {
+        if(doubtcall)
+        {
+            doubtcall=false;
+            if(isdoubt)
+            {
+                return currentTurn;
+            }
+            else
+            {
+                return (currentTurn -1) % noOfPlayers;
+            }
+        }
+        return (currentTurn + 1) % noOfPlayers;
+    }
+     
+    void OpenDropdown()
     {
         isOpen = true;
         dropdownInstance.Show();
@@ -147,6 +192,7 @@ namespace GameSystem
         dropdownInstance.onValueChanged.Invoke(currentIndex);
         isOpen = false;
         idoubt.gamestate="navigating";
+        idoubt.claim=dropdownInstance.options[currentIndex].text;
     }
 
     void CloseDropdown()
