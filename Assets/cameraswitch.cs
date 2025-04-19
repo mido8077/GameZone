@@ -28,7 +28,7 @@ public class cameraswitch : MonoBehaviour
     void Update()
     {
         // Check if 'C' key is pressed
-        if (Input.GetKeyDown(KeyCode.C) && cameras.Length > 1)
+        if (Input.GetKeyDown(KeyCode.R) && cameras.Length > 1)
         {
             // Disable current camera
             cameras[currentCameraIndex].enabled = false;

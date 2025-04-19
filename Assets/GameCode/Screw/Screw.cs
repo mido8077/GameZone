@@ -7,7 +7,7 @@ public class Screw :CardGame
     string prefabpath = "Prefabs/Screw_CardDeck";
     public Screw() : base("Screw", 4)
     {
-    oldscale =new Vector3(150,225.000015f,0.540000081f);
+    oldscale =new Vector3(150,225,0.54f);
     playerrotations = new List<Vector3>
             {
                 new Vector3(0, 0, 0), new Vector3(0, 0, -90), new Vector3(0,0 ,180 ), new Vector3(0, 0, 90)
@@ -55,7 +55,5 @@ public class Screw :CardGame
           };
           centralpileLocalpos[0] = new Vector3(-1, 0, 0);
     }
-
-
     
 }

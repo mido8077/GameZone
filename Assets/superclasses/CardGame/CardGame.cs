@@ -4,6 +4,7 @@ using System;
 using System.Collections;
 using System.Linq;
 
+
 namespace GameSystem
 {
     public class CardGame : Game
@@ -15,7 +16,7 @@ namespace GameSystem
         public LinkedList<GameObject> centralPile;
         protected List<List<Vector3>> handspostions ;
         public List<List<GameObject>> hands;
-        protected Vector3 oldscale,discardpileRotation ;
+        public Vector3 oldscale,discardpileRotation ;
         protected List<Vector3> centralpileLocalpos ;
         public int cplayer,navigatedCardindex = 0;
         public List<int> selectedCardsindex ;
@@ -174,6 +175,12 @@ namespace GameSystem
             card.transform.localPosition = centralpileLocalpos[1];
             }
             card.transform.localRotation = Quaternion.Euler(discardpileRotation);
+        }
+        public virtual int Zangles()
+        {
+            System.Random random = new System.Random();
+            int number=random.Next(-15, 15);
+            return number;
         }
                 
     }

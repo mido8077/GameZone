@@ -4,6 +4,8 @@ using System.Collections.Generic;
 using System.Threading;
 using System.Linq;
 using NUnit.Framework;
+using System;
+using Unity.Mathematics;
 public class Idoubt :CardGame
 {
 
@@ -88,51 +90,68 @@ public class Idoubt :CardGame
         {
             cards[i].transform.localScale = oldscale;
             cards[i].GetComponent<Renderer>().material.color=Color.white;
+            discardpileRotation += new Vector3(0,0,Zangles());
             throwCard(player,hands[player].IndexOf(cards[i]));
         }
         if(hands[player].Count==0)
         {
             gamestate = "end";
         }
-
+        cardPositionReset();
     }
     public bool doubt(int player)
     {
-        hands[player][navigatedCardindex].transform.localScale = oldscale ;
-        hands[player][navigatedCardindex].GetComponent<Renderer>().material.color = Color.white;
         bool isdoubt = false;
         for(int i=0;i<cards.Count;i++)
         {
             if(cards[i].name.Split('-')[1]!=claim)
             {
                 isdoubt = true;
-                while(centralPile.Count>0)
-                {
+                piletohand(player-1%numberOfPlayers);
+                Debug.Log("passed");
 
-                    hands[player-1].Add(centralPile.Last.Value);
-                    centralPile.RemoveLast();
-                    hands[player-1][hands[player-1].Count-1].transform.localPosition = handspostions[player-1][handspostions[player-1].Count-1];
-                    hands[player][hands[player-1].Count-1].transform.localRotation = hands[player-1][0].transform.localRotation;
-                    Debug.Log("passed");
-                }
             }
             else
             {
                 isdoubt = false;
-                while(centralPile.Count>0)
-                {
-                    hands[player].Add(centralPile.Last.Value);
-                    centralPile.RemoveLast();
-                    hands[player][hands[player].Count-1].transform.localPosition = handspostions[player][handspostions[player].Count-1];
-                    hands[player][hands[player].Count-1].transform.localRotation = hands[player][0].transform.localRotation;
-                    Debug.Log("failed");
-                    
-                }
+                piletohand(player);
+                Debug.Log("failed");  
             }
         }
         gamestate="claiming";
         return isdoubt;
     }
-    
-
+    public void cardPositionReset()
+    {
+        for(int i=0;i<hands.Count;i++)
+        {
+            for(int j=0;j<hands[i].Count;j++)
+            {
+                hands[i][j].transform.localPosition = handspostions[i][j];
+            }
+        }
+    }
+    public void piletohand(int player)
+    {
+        while(centralPile.Count>0)
+        {
+            try
+            {
+                hands[player].Add(centralPile.Last.Value);
+                centralPile.RemoveLast();
+                hands[player][hands[player].Count-1].transform.localPosition = handspostions[player][hands[player].Count-1];
+                hands[player][hands[player].Count-1].transform.localRotation = hands[player][0].transform.localRotation;
+            }
+            catch(ArgumentOutOfRangeException e)
+            {
+                Debug.Log("no place for cards ..... creating place"+e.Message);
+                for(int i=0;i<5;i++)
+                {
+                    handspostions[player].Add(handspostions[player][handspostions[player].Count-1]+cardSpacing[player]);
+                }
+                hands[player][hands[player].Count-1].transform.localPosition = handspostions[player][hands[player].Count-1];
+                hands[player][hands[player].Count-1].transform.localRotation = hands[player][0].transform.localRotation;
+            }
+        }
+    }
 }

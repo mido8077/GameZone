@@ -10,7 +10,7 @@ namespace GameSystem
     {
     Idoubt idoubt;
     public List<GameObject> dropdownPrefab;
-
+    public bool[] passcheck={false,false,false,false};
     bool doubtcall,isdoubt = false;
     public Transform parentCanvas;
     private Dropdown dropdownInstance;
@@ -50,84 +50,127 @@ namespace GameSystem
             Debug.Log("Game Over");
             return;
         }
-        Debug.Log("claim: " + idoubt.claim);
-        if(idoubt.gamestate=="navigating" || idoubt.gamestate=="start")
+        if(!passcheck[currentTurn])
         {
-            if(dropdownPrefab[0].activeSelf)
-            {
-                dropdownPrefab[0].SetActive(false);
-            }
+            Debug.Log("claim: " + idoubt.claim);
             StartCoroutine(idoubt.navigatedCards(currentTurn));
-            
-            if(idoubt.gamestate=="start")
+            if(idoubt.gamestate=="navigating" || idoubt.gamestate=="start")
             {
-                if(Input.GetKeyDown(KeyCode.Space))
+                if(isclaimopen())
                 {
-                    if(idoubt.hands[currentTurn][idoubt.navigatedCardindex].name=="Card_Heart-King")
-                    {
-                        idoubt.throwCard(currentTurn,idoubt.navigatedCardindex);
-                        idoubt.gamestate="navigating";
-                        idoubt.navigatedCardindex=0;
-                        currentTurn=NextTurn(idoubt.numberOfPlayers);
-                    }
-                    else
-                    {
-                    Debug.Log("play the king of hearts");
-                    }
+                    Debug.Log("press c to claim");
                 }
-            }
-            else
-            {
+                if(dropdownPrefab[0].activeSelf)
+                {
+                    dropdownPrefab[0].SetActive(false);
+                }
                 if (Input.GetKeyDown(KeyCode.Space))
                     {
-                        idoubt.SelectCard(idoubt.navigatedCardindex,currentTurn);
+                        if(idoubt.gamestate=="start")
+                        {
+                            if(idoubt.hands[currentTurn][idoubt.navigatedCardindex].name.Split('-')[1]=="King")
+                            {
+                                idoubt.SelectCard(idoubt.navigatedCardindex,currentTurn);
+                            }
+                            else
+                            {
+                                Debug.Log("you can only select kings");
+                            }
+                        }
+                        else
+                        {
+                            idoubt.SelectCard(idoubt.navigatedCardindex,currentTurn);
+                        }
+                    }
+                if(Input.GetKeyDown(KeyCode.Return))
+                    {
+                        if(idoubt.selectedCardsindex.Count!=0)
+                        {
+                        if(idoubt.gamestate=="start")
+                        {
+                            bool kingofhearts=false;
+                            for(int i=0;i<idoubt.selectedCardsindex.Count;i++)
+                            {
+                                if(idoubt.hands[currentTurn][idoubt.selectedCardsindex[i]].name=="Card_Heart-King")
+                                {
+                                    kingofhearts=true;
+                                }
+                            }
+                            if(kingofhearts)
+                            {
+                                idoubt.throwCards(currentTurn,idoubt.selectedCardsindex);
+                                idoubt.selectedCardsindex.Clear();
+                                currentTurn=NextTurn(idoubt.numberOfPlayers);
+                                idoubt.gamestate="navigating";
+                            } 
+                            else
+                            {
+                                Debug.Log("throw the king of hearts");
+                            }
+                        }
+                        else
+                        {
+                            idoubt.throwCards(currentTurn,idoubt.selectedCardsindex);
+                            idoubt.selectedCardsindex.Clear();
+                            currentTurn=NextTurn(idoubt.numberOfPlayers);
+                        }
+                    }
+                    }
+                if(Input.GetKeyDown(KeyCode.C) && isclaimopen())
+                    {
+                        idoubt.gamestate="claiming";
                     }
             }
-                if(Input.GetKeyDown(KeyCode.X))
+            else if(idoubt.gamestate=="claiming")
+            {
+                for(int i=0;i<passcheck.Length;i++)
                 {
-                    
-                    doubtcall=true;
-                    isdoubt=idoubt.doubt(currentTurn);
-                    currentTurn=NextTurn(idoubt.numberOfPlayers);
-                    
+                    passcheck[i]=false;
                 }
-                if(Input.GetKeyDown(KeyCode.Return))
+                Debug.Log("claiming");
+                dropdownPrefab[0].SetActive(true);
+                if (dropdownInstance == null)
+                    return;
+                if (Input.GetKeyDown(KeyCode.DownArrow))
                 {
-                    idoubt.throwCards(currentTurn,idoubt.selectedCardsindex);
-                    idoubt.selectedCardsindex.Clear();
-                    currentTurn=NextTurn(idoubt.numberOfPlayers);
+                    if (!isOpen)
+                        OpenDropdown();
+                    else
+                        dropdownMoveDown();
                 }
-                if(Input.GetKeyDown(KeyCode.P))
+                if (Input.GetKeyDown(KeyCode.UpArrow) && isOpen)
                 {
-                    currentTurn=NextTurn(idoubt.numberOfPlayers);
+                    dropdownMoveUp();
                 }
+                if ((Input.GetKeyDown(KeyCode.LeftAlt) || Input.GetKeyDown(KeyCode.RightAlt)) && isOpen)
+                {
+                    SelectOption();
+                }
+                if (Input.GetKeyDown(KeyCode.Escape) && isOpen)
+                {
+                    CloseDropdown();
+                }
+            }
         }
-        else if(idoubt.gamestate=="claiming")
+        else
         {
-            Debug.Log("claiming");
-            dropdownPrefab[0].SetActive(true);
-            if (dropdownInstance == null)
-                return;
-            if (Input.GetKeyDown(KeyCode.DownArrow))
-            {
-                if (!isOpen)
-                    OpenDropdown();
-                else
-                    dropdownMoveDown();
-            }
-            if (Input.GetKeyDown(KeyCode.UpArrow) && isOpen)
-            {
-                dropdownMoveUp();
-            }
-            if ((Input.GetKeyDown(KeyCode.LeftAlt) || Input.GetKeyDown(KeyCode.RightAlt)) && isOpen)
-            {
-                SelectOption();
-            }
-            if (Input.GetKeyDown(KeyCode.Escape) && isOpen)
-            {
-                CloseDropdown();
-            }
+            Debug.Log("since you passed you can only call doubt");
         }
+        if(Input.GetKeyDown(KeyCode.X))
+            { 
+                doubtcall=true;
+                isdoubt=idoubt.doubt(currentTurn);
+                currentTurn=NextTurn(idoubt.numberOfPlayers);
+            }
+        if(Input.GetKeyDown(KeyCode.P))
+            {
+                if(isclaimopen())
+                {
+                    idoubt.gamestate="claiming";
+                }
+                passcheck[currentTurn]=true;
+                currentTurn=NextTurn(idoubt.numberOfPlayers);
+            }
     }
     public override int firstplayer()
     {
@@ -143,6 +186,9 @@ namespace GameSystem
     }
     public override int NextTurn(int noOfPlayers)
     {
+        idoubt.navigatedCardindex=0;
+        idoubt.hands[currentTurn][idoubt.navigatedCardindex].transform.localScale = idoubt.oldscale;
+        idoubt.hands[currentTurn][idoubt.navigatedCardindex].GetComponent<Renderer>().material.color = Color.white;
         if(doubtcall)
         {
             doubtcall=false;
@@ -202,8 +248,21 @@ namespace GameSystem
         currentIndex = dropdownInstance.value; // Reset highlight
         HighlightOption(currentIndex);
     }
-
+    public bool isclaimopen()
+    {
+        for(int i=0;i<passcheck.Length;i++)
+        {
+            if(i!=currentTurn)
+            {
+                if(!passcheck[i])
+                {
+                    return false;
+                }
+            }
+        }
+        return true;
     }
     
+}
 }
 
